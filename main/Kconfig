@@ -1,0 +1,99 @@
+menu "ESP32 LED Clock Configuration"
+
+config WIFI_SSID
+    string "WiFi SSID"
+    default "your-ssid"
+
+config WIFI_PASS
+    string "WiFi Password"
+    default "your-password"
+
+config LED_GPIO
+    int "GPIO pin for LED"
+    default 2
+
+config QUARTER_HOUR_BLINK_DELAY
+    int "Quarter Hour Blink Delay (ms)"
+    default 300
+
+config BETWEEN_BLINKS_DELAY
+    int "Delay between the Quarter and Hour Blink (ms)"
+    default 500
+    help
+        This delay is applied between the quarter hour blink and the hour blink.
+        It allows for a pause before the next blink sequence starts.
+
+config HOURLY_BLINK_DELAY
+    int "Hourly Blink Delay (ms)"
+    default 100
+
+config NOON_BLINK_DELAY
+    int "Noon Blink Delay (ms)"
+    default 200
+
+config WAKE_COUNT_TO_RESYNC
+    int "Wake Count to Resync with NTP Server"
+    range 0 100000
+    default 24
+    help
+      Number of times the device wakes up to resync with the NTP server.
+      This is useful for maintaining accurate timekeeping.
+      Set to 0 to disable resyncing.
+
+choice
+    prompt "Chime Mode"
+    default CHIME_MODE_ALL
+    help
+        Select chime mode:
+        - ALL: Quarter-hour, hourly, and noon
+        - HOURLY_ONLY: Only hourly and noon
+        - NOON_ONLY: Only noon chime
+config CHIME_MODE_ALL
+    bool "All Chimes Enabled"
+    help
+        Enable all chimes: quarter-hour, hourly, and noon.
+config CHIME_MODE_HOURLY
+    bool "Hourly Chimes"
+    help
+        Enable only hourly and noon chimes.
+config CHIME_MODE_NOON_ONLY
+    bool "Noon Chime Only"
+    help
+        Enable only noon chime.
+endchoice
+
+endmenu
+
+menu "ESP32 LED Clock Test Mode"
+
+config TEST_MODE
+    bool "Enable test mode to simulate LED behavior"
+    default n
+    help
+        If enabled, the device will simulate LED behavior for testing purposes.
+        This is useful for debugging without needing to connect actual LEDs.
+
+config TEST_MODE_HOUR
+    int "Test Mode Hour"
+    default 12
+    range 0 23
+    help
+        Set the hour for the test mode. This will simulate the LED behavior
+        as if it were that hour.
+
+config TEST_MODE_MINUTE
+    int "Test Mode Minute"
+    default 0
+    range 0 59
+    help
+        Set the minute for the test mode. This will simulate the LED behavior
+        as if it were that minute.
+
+config TEST_NOON_BLINK
+    bool "Enable Noon Blink in Test Mode"
+    default n
+    help
+        If enabled, the test mode will simulate the noon blink behavior.
+        Simulating time obtain at 12:00 noon.
+
+endmenu
