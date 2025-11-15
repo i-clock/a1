@@ -1,0 +1,41 @@
+# from VSCode copilot
+# Ignore build output
+/build/
+
+# Ignore SDK configuration
+/sdkconfig
+/sdkconfig.old
+
+# Ignore CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignore compiled object files
+*.o
+*.d
+
+# Ignore VSCode settings (optional)
+.vscode/
+
+
+# from my folder esp32A
+tmp/
+.vscode
+.pio
+*.old
+*.log
+build*/
+dependencies.lock
+backup/
+__pycache__/
+.python-version
+*.bin
+# .devcontainer/
