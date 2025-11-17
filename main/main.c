@@ -200,7 +200,7 @@ void app_main() {
         ESP_LOGI(TAG, "First boot or reset detected. Running initial setup.");
         blink_led(2, 200);  // two short blinks to confirm startup
         getWifiTime();
-	ESP_LOGI(TAG, "https://github.com/43525/esp32LedClock");
+	ESP_LOGI(TAG, "https://github.com/i-clock/a1");
     } else {
         ESP_LOGI(TAG, "Woken up from deep sleep. Wake cause: %d, Wake count: %d",
              wake_cause, wake_count);
