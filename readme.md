@@ -1,7 +1,7 @@
 # ESP32 LED Clock
 
 > **Supported Target:** ESP32  
-> **Note:** This code was generated using ChatGPT for iOS version 1.2024.347 on an iPhone 8.
+> **Note:** This *readme.md* was partially generated using ChatGPT for iOS version 1.2024.347 on an iPhone 8.
 
 This project implements an ESP32-based clock that connects to Wi-Fi, obtains the current time via NTP, and blinks an LED based on the time of day. It also supports deep sleep to conserve power between operations.
 
